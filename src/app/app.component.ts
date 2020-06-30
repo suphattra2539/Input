@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
+import { Data } from './view-model/data';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'OnChange';
+  dataGet = new Data;
+  input1: string = '';
+  input2: string = '';
+  input3: string = '';
+  constructor() { }
+
+  valuechange($event) {
+  }
+
+  valuechange2($event) {
+  }
+
 }
