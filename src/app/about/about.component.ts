@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Data } from '../view-model/data';
+import { ServerService } from '../server/server.service';
 
 @Component({
   selector: 'app-about',
@@ -9,21 +10,17 @@ import { Data } from '../view-model/data';
 export class AboutComponent implements OnInit, OnChanges {
   @Input() input1: string ='';
   @Input() input2: string ='';
-  @Input() input3: string ='';
-  data = new Data;
-  constructor() { }
+  constructor(private server : ServerService) { }
 
   ngOnInit(): void {
   }
   ngOnChanges(changes: SimpleChanges) {
-    if (this.input1) {
-      this.data.input1= this.input1; 
-    }
-    if (this.input2) {
-      this.data.input2 =this.input2; 
-    }
-    this.data.input12 = this.data.input1 + "//" + this.data.input2; 
-    console.log(this.data.input12);
-    this.input3 = this.data.input12;
+    if (this.input1 && this.input2) {
+      this.change();
+    } 
+  }
+
+  change(){
+    this.server.getData(this.input1, this.input2);
   }
 }

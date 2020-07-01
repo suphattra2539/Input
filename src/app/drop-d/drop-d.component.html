@@ -1,0 +1,15 @@
+<br>
+<div class="row">
+    <div class="col-3">
+        <div ngbDropdown>
+            <button class="btn btn-warning" id="dropdownBasic1.1.1" ngbDropdownToggle>dropdown Max</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1.1.1">
+                <div *ngFor="let data of data">
+                    <div *ngFor="let i of data.data">
+                        <button style="width: 200px;" ngbDropdownItem>{{i.value}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
